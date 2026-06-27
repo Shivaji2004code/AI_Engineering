@@ -18,7 +18,7 @@ You have to return with like this :
                                 www.gemni.google.com]
 Make sure You only give the links in the output i will add to my hashmaps so that i can use it later donot give any
 errors while giving output give the format exactly how i mentioned so that it will directly add to the hashmap.
-it should contain all the links in an array and i wil directly append you op array in my dictionary.
+it should contain all the links in an array and i wil directly append your op array in my dictionary.
 
 """
 history = [
@@ -52,6 +52,5 @@ while True:
     h[user_prompt].append(reply)
 
     print("\nAI :", reply)
-    for i in h:
-        print(h[i])
+    print(h[0])
 
