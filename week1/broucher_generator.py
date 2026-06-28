@@ -215,17 +215,19 @@ while True:
 
         response = client.chat.completions.create(
             model = "openai/gpt-4.1-mini",
-            messages = history
+            messages = history,
+            stream = True
         )
 
-        reply = response.choices[0].message.content
-
-        return reply
+        for chunk in response:
+            reply = chunk.choices[0].delta.content
+            if reply is not None:
+                print(reply, end='', flush=True)
 
 
     data = endpoint_parsing(user_prompt)
     matter = matter_parsing(data)
-    print(broucher_data(matter))
+    broucher_data(matter)
 
 
 
