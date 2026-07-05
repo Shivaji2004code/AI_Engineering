@@ -25,11 +25,15 @@ def ai(input_text):
             'content' : input_text
         }
     )
-    response = client.chat.completions.create(model='openai/gpt-4.1-mini',messages=history
+    response = client.chat.completions.create(model='openai/gpt-4.1-mini',messages=history, stream=True
     )
-
-    reply = response.choices[0].message.content
-    return reply
+    reply = """"""
+    for chunk in response:
+        asd = chunk.choices[0].delta.content
+        if asd:
+            reply += asd
+    print(reply)
+    yield reply
 
 
 
