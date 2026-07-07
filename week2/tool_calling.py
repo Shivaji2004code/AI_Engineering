@@ -94,7 +94,6 @@ if message.tool_calls:
         tools = tools,
 
     )
-    message = final.choices[0].message
 
     print(final.choices[0].message.content)
 
